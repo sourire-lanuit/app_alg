@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include <fstream>
-#include <cstdlib>
 
 class Graph {
     protected:
@@ -212,7 +210,7 @@ int main() {
     ug.add_edge(2, 3);
     ug.add_vertex();
     ug.display_matrix();
-
+    
     std::cout << "\n##### Зважений орієнтований граф: #####\n";
     Weighted_Graph wg(4);
     wg.add_edge(0, 1, 5);
