@@ -177,6 +177,18 @@ public:
 
         return x;
     }
+
+    void printLU() const {
+        std::cout << "\nМатриця L:\n";
+        L.print();
+        std::cout << "\nМатриця U:\n";
+        U.print();
+        std::cout << "\nВектор перестановок P: ";
+        for (int i = 0; i < n; i++) {
+            std::cout << P[i] << " ";
+        }
+        std::cout << std::endl;
+    }
 };
 
 int main() {
@@ -216,10 +228,17 @@ int main() {
     }
 
     LUP lup(A);
+    lup.printLU();
     Vector x = lup.solve(a);
 
     std::cout << "\nРозв'язок системи\n";
     x.print();
+
+    Vector check = A * x;
+    std::cout << "\nПеревірка (A * x)\n";
+    for (int i = 0; i < n; i++) {
+        std::cout << "A * x [" << i + 1 << "] = " << std::setprecision(2) << check[i]  << std::endl;
+    }
 
     return 0;
 }
